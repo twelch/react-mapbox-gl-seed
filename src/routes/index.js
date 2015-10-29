@@ -7,6 +7,6 @@ import MapView    from 'views/MapView';
 export default (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView} />
-    <Route path="map" component={MapView} />
+    <Route path="parking" component={MapView} />
   </Route>
 );

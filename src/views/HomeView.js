@@ -1,7 +1,7 @@
 import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
-import { Link }               from 'react-router';
+import GLMap                  from '../components/GLMap';
 
 // Normally you'd import your action creators, but I don't want to create
 // a file that you're just going to delete anyways!
@@ -32,15 +32,18 @@ export class HomeView extends React.Component {
   }
 
   render () {
+    const view = {
+      container: 'map',
+      style: 'mapbox://styles/twelch/cifr49xm4000086m15ev17on0',
+      center: [-122.396, 37.781],
+      zoom: 15
+    };
+
+    const token = 'pk.eyJ1IjoidHdlbGNoIiwiYSI6Il9pX3dtb3cifQ.YcYnsO0X2p3x0HpHPFfleg';
+
     return (
-      <div className='container text-center'>
-        <h1>Welcome to the React Redux Starter Kit</h1>
-        <h2>Sample Counter: {this.props.counter}</h2>
-        <p><Link to="/map">Map</Link></p>
-        <button className='btn btn-default'
-                onClick={this.props.actions.increment}>
-          Increment
-        </button>
+      <div>
+        <GLMap view={view} token={token} />
       </div>
     );
   }

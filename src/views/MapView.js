@@ -1,9 +1,7 @@
 import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
-import { Link }               from 'react-router';
 import GLMap                  from '../components/GLMap';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Normally you'd import your action creators, but I don't want to create
 // a file that you're just going to delete anyways!
@@ -34,16 +32,18 @@ export class MapView extends React.Component {
   }
 
   render () {
-    var linkStyle = {
-      position: 'absolute',
-      top:10,
-      bottom:10
+    const view = {
+      container: 'map',
+      style: 'mapbox://styles/twelch/cifr49xm4000086m15ev17on0',
+      center: [-122.390, 37.787],
+      zoom: 15
     };
+
+    const token = 'pk.eyJ1IjoidHdlbGNoIiwiYSI6Il9pX3dtb3cifQ.YcYnsO0X2p3x0HpHPFfleg';
 
     return (
       <div>
-        <GLMap />
-        <Link style={linkStyle} to="/">Home</Link>
+        <GLMap view={view} token={token} />
       </div>
     );
   }
