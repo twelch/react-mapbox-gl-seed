@@ -24,12 +24,15 @@ Node `^4.0.0`
 Getting Started
 ---------------
 
-Just clone the repo and install the necessary node modules:
+Clone the repo and install dependencies:
 
 ```shell
+$ git clone https://github.com/twelch/react-mapbox-gl-seed.git
+$ cd react-mapbox-gl-seed
 $ npm install
-$ npm start
 ```
+
+Edit settings.js and enter your public mapbox access token.
 
 Usage
 -----

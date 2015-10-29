@@ -2,6 +2,7 @@ import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 import GLMap                  from '../components/GLMap';
+import settings               from '../settings';
 
 // Normally you'd import your action creators, but I don't want to create
 // a file that you're just going to delete anyways!
@@ -39,11 +40,9 @@ export class HomeView extends React.Component {
       zoom: 15
     };
 
-    const token = 'pk.eyJ1IjoidHdlbGNoIiwiYSI6Il9pX3dtb3cifQ.YcYnsO0X2p3x0HpHPFfleg';
-
     return (
       <div>
-        <GLMap view={view} token={token} />
+        <GLMap view={view} token={settings.map.token} />
       </div>
     );
   }
