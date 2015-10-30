@@ -1,16 +1,38 @@
 const React = require('react');
-const { LeftNav, MenuItem, AppBar } = require('material-ui');
+import { bindActionCreators } from 'redux';
+const { connect } = require('react-redux');
+const { AppBar } = require('material-ui');
 const injectTapEventPlugin = require('react-tap-event-plugin');
+const Sidebar = require('../components/Sidebar');
 
 import 'styles/core.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 injectTapEventPlugin();
 
+// Define action creators
+const actionCreators = {
+  changeBaseLayer : (layer) => ({
+    type : 'CHANGE_BASELAYER',
+    payload : layer
+  })
+};
+// Create dispatchers from action creators and assign to actions prop
+const mapDispatchToProps = (dispatch) => ({
+  actions : bindActionCreators(actionCreators, dispatch)
+});
+
+// Bind state to props
+const mapStateToProps = (state) => ({
+  mapState : state.map
+});
+
 export default class CoreLayout extends React.Component {
   static propTypes = {
     children : React.PropTypes.element,
-    history : React.PropTypes.object
+    history : React.PropTypes.object,
+    mapState : React.PropTypes.object,
+    actions : React.PropTypes.object
   }
 
   constructor () {
@@ -21,24 +43,18 @@ export default class CoreLayout extends React.Component {
   }
 
   _onLeftNavChange(e, key, payload) {
-    this.props.history.pushState(null, payload.route);
+    if (payload.route) {
+      this.props.history.pushState(null, payload.route);
+    } else if (payload.layer) {
+      this.props.actions.changeBaseLayer(payload.layer);
+    }
   }
 
   _showLeftNavClick() {
-    this.refs.leftNav.toggle();
+    this.refs.sidebar.toggle();
   }
 
   render () {
-    const menuItems = [
-      { type: MenuItem.Types.SUBHEADER, text: 'Views' },
-      { route: '/', text: 'Lighting' },
-      { route: '/parking', text: 'Available Parking' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Base Layer' },
-      { route: '/base/streets', text: 'Streets' },
-      { route: '/base/satellite', text: 'Satellite' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Settings' }
-    ];
-
     const barStyle = {
       position: 'absolute',
       backgroundColor: 'transparent',
@@ -47,11 +63,11 @@ export default class CoreLayout extends React.Component {
 
     return (
       <div className='page-container'>
-        <LeftNav
-          ref="leftNav"
+        <Sidebar
+          ref="sidebar"
           docked={false}
-          menuItems={menuItems}
-          onChange={this._onLeftNavChange} />
+          onChange={this._onLeftNavChange}
+          mapState={this.props.mapState} />
         <div className='view-container'>
           {this.props.children}
         </div>
@@ -60,3 +76,5 @@ export default class CoreLayout extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoreLayout);

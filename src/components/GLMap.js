@@ -4,6 +4,11 @@ import React, { Component } from 'react';
 require('script!mapbox-gl/dist/mapbox-gl.js');
 
 class GLMap extends Component {
+  static propTypes = {
+    view: React.PropTypes.object,
+    baselayer: React.PropTypes.string,
+    token: React.PropTypes.string
+  }
 
   componentDidMount() {
     mapboxgl.accessToken = this.props.token;
@@ -25,6 +30,29 @@ class GLMap extends Component {
         this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
       });
     });
+
+    this.map.on('style.load', () => {
+      this.map.addSource('satellite', {
+        type: 'raster',
+        url: 'mapbox://mapbox.satellite'
+      });
+      this.map.addLayer({
+        'id': 'satellite',
+        'type': 'raster',
+        'source': 'satellite',
+        'layout': {
+          'visibility': 'none'
+        }
+      });
+    });
+  }
+
+  componentDidUpdate() {
+    if (this.props.baselayer === 'satellite') {
+      this.map.setLayoutProperty('satellite', 'visibility', 'visible');
+    } else {
+      this.map.setLayoutProperty('satellite', 'visibility', 'none');
+    }
   }
 
   componentWillUnmount() {
@@ -46,10 +74,5 @@ class GLMap extends Component {
     );
   }
 }
-
-GLMap.propTypes = {
-  view: React.PropTypes.object,
-  token: React.PropTypes.string
-};
 
 export default GLMap;

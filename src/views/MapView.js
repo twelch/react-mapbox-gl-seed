@@ -1,31 +1,16 @@
 import React                  from 'react';
-import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 import GLMap                  from '../components/GLMap';
-import settings               from '../settings';
+import settings               from '../../config/client';
 
-// Normally you'd import your action creators, but I don't want to create
-// a file that you're just going to delete anyways!
-const actionCreators = {
-  increment : () => ({ type : 'COUNTER_INCREMENT' })
-};
-
-// We define mapStateToProps and mapDispatchToProps where we'd normally use
-// the @connect decorator so the data requirements are clear upfront, but then
-// export the decorated component after the main class definition so
-// the component can be tested w/ and w/o being connected.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter : state.counter,
+  mapState : state.map,
   routerState : state.router
 });
-const mapDispatchToProps = (dispatch) => ({
-  actions : bindActionCreators(actionCreators, dispatch)
-});
+
 export class MapView extends React.Component {
   static propTypes = {
-    actions  : React.PropTypes.object,
-    counter  : React.PropTypes.number
+    mapState  : React.PropTypes.object
   }
 
   constructor () {
@@ -36,16 +21,16 @@ export class MapView extends React.Component {
     const view = {
       container: 'map',
       style: 'mapbox://styles/twelch/cifr49xm4000086m15ev17on0',
-      center: [-122.390, 37.787],
-      zoom: 15
+      center: [-122.42, 37.80],
+      zoom: 16
     };
 
     return (
       <div>
-        <GLMap view={view} token={settings.map.token} />
+        <GLMap view={view} baselayer={this.props.mapState.baselayer} token={settings.map.token} />
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapView);
+export default connect(mapStateToProps)(MapView);
