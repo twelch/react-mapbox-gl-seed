@@ -3,16 +3,21 @@ React Mapbox GL JS Starter Kit
 
 Starter kit to get you up and running with Mapbox GL JS and React and friends including:
 
+* React-dom
+* React-flexr
 * React-router
 * Redux
 * Redux-router
+* Redux-thunk
 * Babel
 * Webpack
 * SASS
 * Material-ui
 
-Based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
+[View the demo](https://reactmaps.firebaseapp.com)
+On mobile you can 'Add to homescreen' from your browser to get a more true app experience
 
+Based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
 [Map icon](https://thenounproject.com/search/?q=map&i=23352) by Paul Stevens, GB
 
 README From react-redux-starter-kit
