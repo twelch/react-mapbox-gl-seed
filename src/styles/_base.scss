@@ -1,1 +1,21 @@
 // Settings go here
+html {
+    height: 100%;
+}
+
+body {   
+  /* Allow to stretch full height and not repeat */
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%);
+  background: rgb(143,206,242); /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(143,206,242,1) 0%, rgba(8,111,163,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(143,206,242,1)), color-stop(100%,rgba(8,111,163,1))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(143,206,242,1) 0%,rgba(8,111,163,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, rgba(143,206,242,1) 0%,rgba(8,111,163,1) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, rgba(143,206,242,1) 0%,rgba(8,111,163,1) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center, rgba(143,206,242,1) 0%,rgba(8,111,163,1) 100%); /* W3C */
+}

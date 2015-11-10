@@ -13,6 +13,8 @@ Starter kit to get you up and running with Mapbox GL JS and React and friends in
 
 Based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
 
+[Map icon](https://thenounproject.com/search/?q=map&i=23352) by Paul Stevens, GB
+
 README From react-redux-starter-kit
 =======================
 

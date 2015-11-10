@@ -1,5 +1,5 @@
 export default {
-  map: {
-    token: 'your public map token here'
+  token: {
+    map: 'your public map token here'
   }
 };

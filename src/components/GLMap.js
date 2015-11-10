@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // NotWorkingShimInstead import mapboxgl from 'mapbox-gl';
-require('script!mapbox-gl/dist/mapbox-gl.js');
+require('script!mapbox-gl/dist/mapbox-gl-dev.js');
 
 class GLMap extends Component {
   static propTypes = {
@@ -13,23 +13,6 @@ class GLMap extends Component {
   componentDidMount() {
     mapboxgl.accessToken = this.props.token;
     this.map = new mapboxgl.Map(this.props.view);
-    this.map.on('click', (e) => {
-      this.map.featuresAt(e.point, {layer: 'lighting', radius: 8}, (err, features) => {
-        if (err) throw err;
-        if (features.length > 0) {
-          new mapboxgl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML('<h3>Lightpost!</h3>')
-          .addTo(this.map);
-        }
-      });
-    });
-    this.map.on('mousemove', (e) => {
-      this.map.featuresAt(e.point, {layer: 'lighting', radius: 8}, (err, features) => {
-        if (err) throw err;
-        this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-      });
-    });
 
     this.map.on('style.load', () => {
       this.map.addSource('satellite', {
@@ -44,6 +27,11 @@ class GLMap extends Component {
           'visibility': 'none'
         }
       });
+
+      if (this.props.onStyleLoad) {
+        this.props.onStyleLoad();
+      }
+
     });
   }
 

@@ -17,22 +17,26 @@ class Sidebar extends React.Component {
 
   render() {
     const menuItems = [
-      { type: MenuItem.Types.SUBHEADER, text: 'Views' },
-      { route: '/', text: 'Lighting' },
-      { route: '/parking', text: 'Available Parking' },
+      { route: '/', text: 'Main Menu' },
+      { route: '/view1', text: 'Crater Lake Contours' },
+      { route: '/view2', text: 'Drone Tracking' },
       { type: MenuItem.Types.SUBHEADER, text: 'Base Layer' },
       { layer: 'streets', text: 'Streets' },
-      { layer: 'satellite', text: 'Satellite' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Settings' }
+      { layer: 'satellite', text: 'Satellite' }
     ];
 
     // Break out props to consume and leave rest to pass on
     const {ref, ...childProps} = this.props;
 
+    const style = {
+      zIndex: '100'
+    };
+
     return (
       <div>
         <LeftNav
           ref="leftNav"
+          style={style}
           menuItems={menuItems}
           {...childProps} />
       </div>

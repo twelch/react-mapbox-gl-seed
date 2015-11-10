@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "compile": "webpack",
+    "compile": "NODE_ENV=production webpack",
     "start": "npm run dev",
     "dev": "node --harmony bin/webpack-dev-server",
     "dev:nw": "npm run dev -- --nw",
@@ -26,6 +26,7 @@
     "mapbox-gl": "^0.11.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-flexr": "^2.0.2",
     "react-redux": "^4.0.0",
     "react-router": "1.0.0-rc1",
     "redux": "^3.0.0",

@@ -7,6 +7,7 @@ const Sidebar = require('../components/Sidebar');
 
 import 'styles/core.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-flexr/styles.css';
 
 injectTapEventPlugin();
 
@@ -31,6 +32,7 @@ export default class CoreLayout extends React.Component {
   static propTypes = {
     children : React.PropTypes.element,
     history : React.PropTypes.object,
+    location: React.PropTypes.object,
     mapState : React.PropTypes.object,
     actions : React.PropTypes.object
   }
@@ -56,22 +58,34 @@ export default class CoreLayout extends React.Component {
 
   render () {
     const barStyle = {
+      top: 0,
+      left: 0,
       position: 'absolute',
       backgroundColor: 'transparent',
       boxShadow: 'none'
     };
 
+    let appbar = '';
+    if (this.props.location.pathname !== '/') {
+      appbar = (
+        <AppBar
+        className='c-app-bar'
+        style={barStyle}
+        onLeftIconButtonTouchTap={this._showLeftNavClick} />
+      );
+    }
+
     return (
       <div className='page-container'>
-        <Sidebar
+        <div className='view-container'>
+          <Sidebar
           ref="sidebar"
           docked={false}
           onChange={this._onLeftNavChange}
           mapState={this.props.mapState} />
-        <div className='view-container'>
           {this.props.children}
         </div>
-        <AppBar className='c-app-bar' style={barStyle} onLeftIconButtonTouchTap={this._showLeftNavClick} />
+        {appbar}
       </div>
     );
   }
