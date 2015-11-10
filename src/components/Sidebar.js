@@ -18,8 +18,8 @@ class Sidebar extends React.Component {
   render() {
     const menuItems = [
       { route: '/', text: 'Main Menu' },
-      { route: '/view1', text: 'Crater Lake Contours' },
-      { route: '/view2', text: 'Drone Tracking' },
+      { route: '/view1', text: 'Mount Fuji Contours' },
+      { route: '/view2', text: 'Venice Fly' },
       { type: MenuItem.Types.SUBHEADER, text: 'Base Layer' },
       { layer: 'streets', text: 'Streets' },
       { layer: 'satellite', text: 'Satellite' }

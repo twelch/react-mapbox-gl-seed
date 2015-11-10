@@ -26,7 +26,6 @@ export class View2 extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this);
     window.setTimeout(() => {
       this.refs.glmap.map.flyTo({
         center: [12.327347, 45.442500],
@@ -34,7 +33,7 @@ export class View2 extends React.Component {
         zoom: 18,
         speed: 0.2
       });
-    }, 12000);    
+    }, 12000);
   }
 
   render () {

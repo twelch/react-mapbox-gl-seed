@@ -24,24 +24,24 @@ export class View1 extends React.Component {
     this._addContours = this._addContours.bind(this);
   }
 
-  _addContours() {
-    this.refs.glmap.map.addSource('terrain-data', {
-        type: 'vector',
-        url: 'mapbox://mapbox.mapbox-terrain-v2'
+  _addContours(map) {
+    map.addSource('terrain-data', {
+      type: 'vector',
+      url: 'mapbox://mapbox.mapbox-terrain-v2'
     });
-    this.refs.glmap.map.addLayer({
-        "id": "contour",
-        "type": "line",
-        "source": "terrain-data",
-        "source-layer": "contour",
-        "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-        },
-        "paint": {
-            "line-color": "#BAC7AC",
-            "line-width": 1
-        }
+    map.addLayer({
+      'id': 'contour',
+      'type': 'line',
+      'source': 'terrain-data',
+      'source-layer': 'contour',
+      'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+        'line-color': '#BAC7AC',
+        'line-width': 1
+      }
     });       
   }
 

@@ -5,9 +5,14 @@ require('script!mapbox-gl/dist/mapbox-gl-dev.js');
 
 class GLMap extends Component {
   static propTypes = {
+    // Default map view
     view: React.PropTypes.object,
+    // Current base layer
     baselayer: React.PropTypes.string,
-    token: React.PropTypes.string
+    // Mapbox map token
+    token: React.PropTypes.string,
+    // onStyleEvent fired after style loaded.  Map object is passed
+    onStyleLoad: React.PropTypes.func
   }
 
   componentDidMount() {
@@ -29,9 +34,8 @@ class GLMap extends Component {
       });
 
       if (this.props.onStyleLoad) {
-        this.props.onStyleLoad();
+        this.props.onStyleLoad(this.map);
       }
-
     });
   }
 
