@@ -42,16 +42,16 @@ export class View1 extends React.Component {
         'line-color': '#BAC7AC',
         'line-width': 1
       }
-    });       
+    });
   }
 
   render () {
     return (
       <div>
-        <GLMap 
-        ref='glmap' 
-        view={this.mapView} 
-        baselayer={this.props.mapState.baselayer} 
+        <GLMap
+        ref='glmap'
+        view={this.mapView}
+        baselayer={this.props.mapState.baselayer}
         token={appconfig.token.map}
         onStyleLoad={this._addContours} />
       </div>
