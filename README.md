@@ -15,6 +15,7 @@ Starter kit to get you up and running with Mapbox GL JS and React and friends in
 * Material-ui
 
 [View the demo](https://reactmaps.firebaseapp.com)
+
 On mobile you can 'Add to homescreen' from your browser to get a more true app experience
 
 Based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
