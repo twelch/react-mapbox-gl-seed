@@ -4,7 +4,7 @@ import { devTools } from 'redux-devtools';
 import thunk        from 'redux-thunk';
 import routes       from '../routes';
 import { reduxReactRouter } from 'redux-router';
-import createHistory from 'history/lib/createBrowserHistory';
+import createHistory from 'history/lib/createHashHistory';
 
 export default function configureStore (initialState, debug = false) {
   let createStoreWithMiddleware;
