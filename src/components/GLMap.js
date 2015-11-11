@@ -7,6 +7,8 @@ class GLMap extends Component {
   static propTypes = {
     // Default map view
     view: React.PropTypes.object,
+    // Style of map container
+    mapStyle: React.PropTypes.object,
     // Current base layer
     baselayer: React.PropTypes.string,
     // Mapbox map token
@@ -52,16 +54,9 @@ class GLMap extends Component {
   }
 
   render() {
-    const mapStyle = {
-      position: 'absolute',
-      top:0,
-      bottom:0,
-      width:'100%'
-    };
-
     return (
       <div>
-        <div id='map' style={mapStyle}></div>
+        <div style={this.props.mapStyle} id='map'></div>
       </div>
     );
   }

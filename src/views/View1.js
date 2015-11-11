@@ -46,10 +46,18 @@ export class View1 extends React.Component {
   }
 
   render () {
+    const mapStyle = {
+      position: 'absolute',
+      top:0,
+      bottom:0,
+      width:'100%'
+    };
+
     return (
       <div>
         <GLMap
         ref='glmap'
+        mapStyle={mapStyle}
         view={this.mapView}
         baselayer={this.props.mapState.baselayer}
         token={appconfig.token.map}
