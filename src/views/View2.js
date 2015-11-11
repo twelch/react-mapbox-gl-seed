@@ -45,11 +45,11 @@ export class View2 extends React.Component {
     };
     return (
       <div>
-        <GLMap 
+        <GLMap
           ref='glmap'
-          mapStyle={mapStyle}          
-          view={this.mapView} 
-          baselayer={this.props.mapState.baselayer} 
+          mapStyle={mapStyle}
+          view={this.mapView}
+          baselayer={this.props.mapState.baselayer}
           token={appconfig.token.map} />
       </div>
     );
