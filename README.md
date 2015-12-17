@@ -19,6 +19,7 @@ Starter kit to get you up and running with Mapbox GL JS and React and friends in
 On mobile you can 'Add to homescreen' from your browser to get a more true app experience
 
 Based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
+
 [Map icon](https://thenounproject.com/search/?q=map&i=23352) by Paul Stevens, GB
 
 README From react-redux-starter-kit
@@ -40,7 +41,7 @@ $ cd react-mapbox-gl-seed
 $ npm install
 ```
 
-Edit settings.js and enter your public mapbox access token.
+Edit config/client.js and enter your public mapbox access token.
 
 Usage
 -----
