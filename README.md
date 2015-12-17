@@ -13,6 +13,7 @@ Starter kit to get you up and running with Mapbox GL JS and React and friends in
 * Webpack
 * SASS
 * Material-ui
+* Firebase static hosting
 
 [View the demo](https://reactmaps.firebaseapp.com)
 
