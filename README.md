@@ -1,6 +1,8 @@
 React Mapbox GL JS Starter Kit
 =======================
 
+* This kit has not been maintained for a while but has a lot of useful bits for reference.  You should really work from the latest version of the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) which evolves at a rapid pace.  Alse use the [webpack example](https://github.com/mapbox/mapbox-gl-js/blob/7d50ee9f710ae1f1065cfd77f2d02f127fb9d7b5/webpack.config.example.js) that Mapbox includes now.  Good luck.
+
 Starter kit to get you up and running with Mapbox GL JS and React and friends including:
 
 * React-dom
