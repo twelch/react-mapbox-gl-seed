@@ -1,7 +1,9 @@
 React Mapbox GL JS Starter Kit
 =======================
 
-* This kit has not been maintained for a while but has a lot of useful bits for reference.  You should really work from the latest version of the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) which evolves at a rapid pace.  Alse use the [webpack example](https://github.com/mapbox/mapbox-gl-js/blob/7d50ee9f710ae1f1065cfd77f2d02f127fb9d7b5/webpack.config.example.js) that Mapbox includes now.  Good luck.
+* This kit is no longer recommended for use, though it does work.  The pattern you're looking for in integrating Mapbox GL JS with React is explained in detail by Tom Macwright in his [blog post](https://www.mapbox.com/blog/mapbox-gl-js-reactive/) and it uses style diffs to transition between map states in a reactive manner rather than using the more imperative Mapbox GL JS API as this kit does.  This [library from Uber](https://github.com/uber/react-map-gl) uses it.
+* If you do use this, you should really work from the latest version of the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) which evolves at a rapid pace.
+* Note that Mapbox no longer supports using Webpack to bundle Mapbox GL JS because the Web Worker dependencies for webpack are fairly brittle, though it is possible. Here's an old [webpack example](https://github.com/mapbox/mapbox-gl-js/blob/7d50ee9f710ae1f1065cfd77f2d02f127fb9d7b5/webpack.config.example.js) Good luck.
 
 Starter kit to get you up and running with Mapbox GL JS and React and friends including:
 
