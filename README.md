@@ -1,10 +1,14 @@
 React Mapbox GL JS Starter Kit
 =======================
 
-* This kit is no longer recommended for use, though it does work.  The pattern you're looking for in integrating Mapbox GL JS with React is explained in detail by Tom Macwright in his [blog post](https://www.mapbox.com/blog/mapbox-gl-js-reactive/) and it uses style diffs to transition between map states in a reactive manner rather than using the more imperative Mapbox GL JS API as this kit does.  This [library from Uber](https://github.com/uber/react-map-gl) uses it.
-* If you do use this, you should really work from the latest version of the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) which evolves at a rapid pace.
-* Note that Mapbox no longer supports using Webpack to bundle Mapbox GL JS because the Web Worker dependencies for webpack are fairly brittle, though it is possible. Here's an old [webpack example](https://github.com/mapbox/mapbox-gl-js/blob/7d50ee9f710ae1f1065cfd77f2d02f127fb9d7b5/webpack.config.example.js) Good luck.
+* This kit is no longer recommended for use, so much has evolved, though it does work.  The `create-react-app` project makes a better starting point.
+* See this Mapbox help post - https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/
+* And this Mapbox blog post - https://www.mapbox.com/blog/mapbox-gl-js-react
+* For more complex cases see Tom Macwright in his [blog post](https://www.mapbox.com/blog/mapbox-gl-js-reactive/). It uses style diffs to transition between map states in a reactive manner rather than using the more imperative Mapbox GL JS API as this kit does.  This [library from Uber](https://github.com/uber/react-map-gl) uses the technique.
 
+----
+
+* Code based on the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) which evolves at a rapid pace.
 Starter kit to get you up and running with Mapbox GL JS and React and friends including:
 
 * React-dom
@@ -18,8 +22,6 @@ Starter kit to get you up and running with Mapbox GL JS and React and friends in
 * SASS
 * Material-ui
 * Firebase static hosting
-
-[View the demo](https://reactmaps.firebaseapp.com)
 
 On mobile you can 'Add to homescreen' from your browser to get a more true app experience
 
